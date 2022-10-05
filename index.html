@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<!-- electronmon -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="./script.js"></script>
+  <title>Images Switcher</title>
+</head>
+
+<body class="dark:bg-darkBlue dark:text-white font-opensans">
+  <!-- Container principale mette in colonna i container sottostanti -->
+  <div class="max-w-7xl mx-auto">
+    <!-- commands -->
+    <div class=" bg-slate-400 w-full p-6 mx-auto mt-8 grid grid-cols-2 gap-8">
+      
+      <!-- Path1 -->
+      <div class=" flex items-center gap-4">
+        <p class=" text-sm text-red font-bold text-black">Path 1</p>
+        <input id="input-1" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[400px] text-sm">
+      </div>
+
+
+      <!-- Path2 -->
+      <div class=" flex items-center gap-4">
+        <p class=" text-sm text-red font-bold text-black">Path 2</p>
+        <input id="input-2" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[400px] text-sm">
+      </div>
+
+      <!-- Container index offset  -->
+      <div class="flex items-center gap-14">
+        <div class="flex items-center gap-4">
+          <p class=" text-sm text-red font-bold text-black">Indice di partenza</p>
+          <input id="input-index" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
+        </div>
+        <div class="flex items-center gap-4">
+          <p class=" text-sm text-red font-bold text-black">Offset</p>
+          <input id="input-offset" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
+        </div>
+      </div>
+
+      <!-- Container start clear -->
+      <div class="flex items-center gap-14">
+        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="start-button">Start</button>
+        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="clear-button">Clear</button>
+      </div>
+    </div>
+
+    <!-- Images container -->
+    <div class=" bg-slate-400 w-full min-h-[550px] p-6 mx-auto mt-10">
+      <!-- left col -->
+      <div class="grid grid-cols-[80px_1fr_80px] h-[550px]">
+        <div class="flex flex-col justify-center">
+          <button
+            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+            id="left-arrow">
+            <img src="./images/left-arrow-clean.svg" alt="left arrow" class="text-black w-20">
+          </button>
+        </div>
+
+        <div class="p-2 flex justify-around items-center" id="images-container">
+          <img src="" class="w-[48%] " alt="" id="img-1">
+          <img src="" class="w-[48%]" alt="" id="img-2">
+        </div>
+
+        <div class="flex flex-col justify-center ">
+          <button
+            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+            id="right-arrow">
+            <img src="./images/right-arrow-clean.svg" alt="left arrow" class="text-black w-20">
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+<!-- <a href="https://www.flaticon.com/free-icons/next" title="next icons">Next icons created by Roundicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/back" title="back icons">Back icons created by Roundicons - Flaticon</a>
+-->

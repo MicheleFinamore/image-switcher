@@ -1,0 +1,20 @@
+{
+  "name": "simple-tailwind-starter",
+  "version": "1.0.0",
+  "description": "Simple file structure for Tailwind projects",
+  "main": "electron/main.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./input.css -o ./css/style.css",
+    "start-electron": "electron ."
+  },
+  "author": "Brad Traversy",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^21.0.1",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "tailwindcss-children": "^2.1.0"
+  }
+}
