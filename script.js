@@ -1,37 +1,30 @@
 let current_images = {};
+const input_1 = document.getElementById("input-1");
+const input_2 = document.getElementById("input-2");
+const input_index = document.getElementById("input-index");
+const input_offset = document.getElementById("input-offset");
+const start_button = document.getElementById("start-button");
+const clear_button = document.getElementById("clear-button");
+const left_arrow = document.getElementById("left-arrow");
+const right_arrow = document.getElementById("right-arrow");
+const img_1 = document.getElementById("img-1");
+const img_2 = document.getElementById("img-2");
 
-document.addEventListener("DOMContentLoaded", () => {
+input_index.value = "0";
+input_offset.value = "2";
 
-  const input_index = document.getElementById("input-index");
-  const input_offset = document.getElementById("input-offset");
-  const start_button = document.getElementById("start-button");
-  const clear_button = document.getElementById('clear-button');
-  const left_arrow = document.getElementById("left-arrow");
-  const right_arrow = document.getElementById("right-arrow");
-  
-  input_index.value = "0";
-  input_offset.value = "2";
-
-  start_button.addEventListener("click", startButtonHandler )
-  clear_button.addEventListener("click", clearButtonHandler)
-  right_arrow.addEventListener("click", rightArrowHandler);
-  left_arrow.addEventListener("click", leftArrowHandler)
-});
+start_button.addEventListener("click", startButtonHandler);
+clear_button.addEventListener("click", clearButtonHandler);
+right_arrow.addEventListener("click", rightArrowHandler);
+left_arrow.addEventListener("click", leftArrowHandler);
 
 
-async function leftArrowHandler(){
-  let path1 = input_1.value
+async function leftArrowHandler() {
+  let path1 = input_1.value;
 }
-
 
 // handler freccia destra
 async function rightArrowHandler() {
-  const input_1 = document.getElementById("input-1");
-  const input_2 = document.getElementById("input-2");
-  const input_offset = document.getElementById("input-offset");
-  let img_1 = document.getElementById("img-1");
-  let img_2 = document.getElementById("img-2");
-
 
   let path1 = input_1.value;
   let path2 = input_2.value;
@@ -51,11 +44,7 @@ async function rightArrowHandler() {
 
 // handler bottone di start
 async function startButtonHandler() {
-  const input_1 = document.getElementById("input-1");
-  const input_2 = document.getElementById("input-2");
-  const input_index = document.getElementById("input-index");
-  let img_1 = document.getElementById("img-1");
-  let img_2 = document.getElementById("img-2");
+
   let path1 = input_1.value;
   let path2 = input_2.value;
   let index = parseInt(input_index.value);
@@ -75,21 +64,15 @@ async function startButtonHandler() {
   img_2.src = `data:image/png;base64,${res.image2}`;
 }
 
-function clearButtonHandler(){
-  const input_index = document.getElementById("input-index");
-  const input_offset = document.getElementById("input-offset");
-  const input_1 = document.getElementById("input-1");
-  const input_2 = document.getElementById("input-2");
-  let img_1 = document.getElementById("img-1");
-  let img_2 = document.getElementById("img-2");
+function clearButtonHandler() {
 
-  input_index.value = ''
-  input_offset.value = ''
-  input_1.value = ''
-  input_2.value = ''
+  input_index.value = "";
+  input_offset.value = "";
+  input_1.value = "";
+  input_2.value = "";
 
-  img_1.src = ''
-  img_2.src = ''
+  img_1.src = "";
+  img_2.src = "";
 }
 
 // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
