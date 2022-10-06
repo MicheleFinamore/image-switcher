@@ -5,10 +5,13 @@ const input_index = document.getElementById("input-index");
 const input_offset = document.getElementById("input-offset");
 const start_button = document.getElementById("start-button");
 const clear_button = document.getElementById("clear-button");
+const parallel_button = document.getElementById("parallel-button");
 const left_arrow = document.getElementById("left-arrow");
 const right_arrow = document.getElementById("right-arrow");
 const img_1 = document.getElementById("img-1");
 const img_2 = document.getElementById("img-2");
+
+
 
 input_index.value = "0";
 input_offset.value = "2";
@@ -17,6 +20,9 @@ start_button.addEventListener("click", startButtonHandler);
 clear_button.addEventListener("click", clearButtonHandler);
 right_arrow.addEventListener("click", rightArrowHandler);
 left_arrow.addEventListener("click", leftArrowHandler);
+parallel_button.addEventListener('click', () => {
+  window.open('./new.html')
+})
 
 
 async function leftArrowHandler() {
@@ -63,6 +69,8 @@ async function startButtonHandler() {
   img_1.src = `data:image/png;base64,${res.image1}`;
   img_2.src = `data:image/png;base64,${res.image2}`;
 }
+
+
 
 function clearButtonHandler() {
 
