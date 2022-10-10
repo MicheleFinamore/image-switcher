@@ -527,6 +527,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 550px;
 }
 
+.h-full {
+  height: 100%;
+}
+
+.h-\[80vh\] {
+  height: 80vh;
+}
+
 .min-h-\[550px\] {
   min-height: 550px;
 }
@@ -561,6 +569,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .grid-cols-\[80px_1fr_80px\] {
   grid-template-columns: 80px 1fr 80px;
+}
+
+.grid-cols-\[95px_1fr_95px\] {
+  grid-template-columns: 95px 1fr 95px;
 }
 
 .flex-col {
