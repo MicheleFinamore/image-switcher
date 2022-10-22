@@ -523,20 +523,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
-.h-\[550px\] {
-  height: 550px;
-}
-
-.h-full {
-  height: 100%;
-}
-
 .h-\[80vh\] {
   height: 80vh;
 }
 
-.min-h-\[550px\] {
-  min-height: 550px;
+.h-full {
+  height: 100%;
 }
 
 .w-full {
@@ -701,16 +693,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 *::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  cursor:pointer;
 }
 
 *::-webkit-scrollbar-track{
   background-color : hsl(217, 28%, 15%);
+  cursor:pointer;
 }
 
 *::-webkit-scrollbar-thumb{
   background-color : rgb(148 163 184 );
   border-radius : 3px;
+  cursor : pointer;
+}
+
+*::-webkit-scrollbar-thumb:hover{
+  background-color : rgb(179, 190, 205);
 }
 
 .hover\:cursor-pointer:hover {

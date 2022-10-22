@@ -3,10 +3,12 @@ const path = require("path");
 const { ipcMain } = require("electron/main");
 const fs = require("fs").promises;
 const fsSync = require("fs");
+const {readDirectoryAsync,readFileAsync} = require('../utilities/AsyncMethods')
 
 let current_images = {};
 let current_index;
-
+let parallel_current_index;
+let redirectWindow;
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -22,6 +24,19 @@ const createWindow = () => {
   });
 
   win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
+
+  redirectWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    minWidth: 600,
+    minHeight: 600,
+    show : false
+  });
+
+  redirectWindow.loadURL(`file://${path.join(__dirname, "../parallel.html")}`);
+
+
+
 };
 
 app.whenReady().then(() => {
@@ -75,28 +90,37 @@ ipcMain.handle("next_images", async (event, args) => {
 
 
 
+//************* PARALLEL MODE ************************
+
+ipcMain.handle("start_parallel_mode",(event,args) => {
+  redirectWindow.show()
+  return true
+})
 
 
-const readDirectoryAsync = async (dirPath) => {
-  try {
-    const data = await fs.readdir(dirPath);
-    return data;
-  } catch (error) {
-    console.error(
-      `Got an error trying to read the directory: ${error.message}`
-    );
-  }
-};
+ipcMain.handle("parallel_next_images",async (event,args) => {
+  const {path, offset} = args
 
-const readFileAsync = async (filePath) => {
-  try {
-    const data = await fs.readFile(filePath);
-    // console.log(data.toString('base64'));
-    return data.toString("base64");
-  } catch (error) {
-    console.error(`Got an error trying to read the file: ${error.message}`);
-  }
-};
+  // prendi il path corrente, prendi index corrente prendi offset
+  // leggi cartella
+  // prendi immagine
+  // ritorna immagine 
+
+  let image1;
+
+  const current_image = parallel_current_index + offset;
+  parallel_current_index = current_image;
+
+  const folder1_files = await readDirectoryAsync(path);
+  console.log("parallel_mode_files", folder1_files[parallel_current_index]);
+  image1 = await readFileAsync(path + "/" + folder1_files[parallel_current_index]);
+
+  return { status: "ok", parallel_current_index, image1 };
+})
+
+
+
+
 
 async function readFile(filePath) {
   try {
