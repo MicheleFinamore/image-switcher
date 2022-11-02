@@ -1,3 +1,5 @@
+const fs= require('fs').promises
+
 const readDirectoryAsync = async (dirPath) => {
     try {
       const data = await fs.readdir(dirPath);

@@ -531,6 +531,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.min-h-\[500px\] {
+  min-height: 500px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -593,6 +597,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-14 {
   gap: 3.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .rounded-sm {
@@ -666,6 +674,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 600;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -703,13 +715,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 *::-webkit-scrollbar-thumb{
-  background-color : rgb(148 163 184 );
+  background-color : #333;
   border-radius : 3px;
   cursor : pointer;
-}
-
-*::-webkit-scrollbar-thumb:hover{
-  background-color : rgb(179, 190, 205);
 }
 
 .hover\:cursor-pointer:hover {
@@ -755,3 +763,5 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+

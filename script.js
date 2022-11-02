@@ -21,22 +21,24 @@ clear_button.addEventListener("click", clearButtonHandler);
 right_arrow.addEventListener("click", rightArrowHandler);
 left_arrow.addEventListener("click", leftArrowHandler);
 parallel_button.addEventListener('click', () => {
-  window.open('./new.html')
+  window.ipc_renderer.invoke('start_parallel_mode')
 })
 
 
 async function leftArrowHandler() {
   let path1 = input_1.value;
-}
-
-// handler freccia destra
-async function rightArrowHandler() {
-
-  let path1 = input_1.value;
   let path2 = input_2.value;
   let offset = parseInt(input_offset.value);
+  let index = parseInt(input_index.value)
+  let new_index = index - offset
+  if(new_index < 0){
+    alert('Attenzione stai generando un index negativo')
+    return
+  } 
+  input_index.value = (new_index).toString()
 
-  const res = await window.ipc_renderer.invoke("next_images", {
+
+  const res = await window.ipc_renderer.invoke("previous_images", {
     path1,
     path2,
     offset,
@@ -46,6 +48,27 @@ async function rightArrowHandler() {
 
   img_1.src = `data:image/png;base64,${res.image1}`;
   img_2.src = `data:image/png;base64,${res.image2}`;
+}
+
+// handler freccia destra
+async function rightArrowHandler() {
+
+  let path1 = input_1.value;
+  let path2 = input_2.value;
+  let offset = parseInt(input_offset.value);
+  let index = parseInt(input_index.value)
+  
+  const res = await window.ipc_renderer.invoke("next_images", {
+    path1,
+    path2,
+    offset,
+  });
+  
+  if (res) console.log("res in next images", res);
+  
+  img_1.src = `data:image/png;base64,${res.image1}`;
+  img_2.src = `data:image/png;base64,${res.image2}`;
+  input_index.value = (offset + index).toString()
 }
 
 // handler bottone di start

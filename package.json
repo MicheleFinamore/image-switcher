@@ -1,5 +1,5 @@
 {
-  "name": "simple-tailwind-starter",
+  "name": "image-comparison",
   "version": "1.0.0",
   "description": "Simple file structure for Tailwind projects",
   "main": "electron/main.js",

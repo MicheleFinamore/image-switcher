@@ -53,13 +53,18 @@
       <div class="flex items-center gap-14">
         <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="parallel-start-button">Start</button>
         <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100" id="parallel-clear-button">Clear</button>
+
+        <div class=" flex items-center justify-center gap-2">
+          <p class="text-black font-semibold">Folder corrente:</p>
+          <p class="text-black font-medium" id="current_folder"></p>
+        </div>
       </div>
     </div>
 
     <!-- Images container -->
     <div class=" bg-slate-400 w-full p-6 mx-auto mt-10 rounded-sm">
       <!-- left col -->
-      <div class="grid grid-cols-[95px_1fr_95px]">
+      <div class="grid grid-cols-[95px_1fr_95px] min-h-[500px]">
         <div class="flex flex-col justify-center">
           <button
             class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
@@ -69,10 +74,10 @@
         </div>
 
         <div class="p-2 flex justify-around items-center" id="parallel-images-container">
-          <img src="./images/Pool1/photo_5897639110372342733_w.jpg" class="w-full h-full" alt="" id="parallel-img-1">
+          <img class="w-full h-full" alt="" id="parallel-img-1">
         </div>
 
-        <div class="flex flex-col justify-center gap-4">
+        <div class="flex flex-col justify-center gap-4 ">
           <button
             class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
             id="parallel-right-arrow">
