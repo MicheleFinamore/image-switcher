@@ -50,6 +50,7 @@ ipcMain.handle("display_first_images", async (event, args) => {
   let image2;
 
   const folder1_files = await readDirectoryAsync(path1);
+  console.log('folder_1_files', folder1_files);
   image1 = await readFileAsync(
     path1 + "/" + folder1_files[state.current_index]
   );
@@ -120,6 +121,7 @@ ipcMain.handle("start_parallel_mode", (event, args) => {
     minWidth: 600,
     minHeight: 600,
     show: false,
+    title : 'Parallel Mode',
     webPreferences: {
       // nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
@@ -129,6 +131,10 @@ ipcMain.handle("start_parallel_mode", (event, args) => {
   });
 
   parallelWindow.loadURL(`file://${path.join(__dirname, "../parallel.html")}`);
+
+  parallelWindow.webContents.on('did-finish-load',() => {
+    parallelWindow.setTitle('Parallel Mode')
+  })
   parallelWindow.show();
   state.parallelFlag = true;
   return true;
