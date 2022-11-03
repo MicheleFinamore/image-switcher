@@ -29,7 +29,7 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadURL(`file://${path.join(__dirname, "../index.html")}`);
+  mainWindow.loadURL(`file://${path.join(__dirname, "../src/index.html")}`);
 };
 
 app.whenReady().then(() => {
@@ -130,7 +130,7 @@ ipcMain.handle("start_parallel_mode", (event, args) => {
     },
   });
 
-  parallelWindow.loadURL(`file://${path.join(__dirname, "../parallel.html")}`);
+  parallelWindow.loadURL(`file://${path.join(__dirname, "../src/parallel.html")}`);
 
   parallelWindow.webContents.on('did-finish-load',() => {
     parallelWindow.setTitle('Parallel Mode')

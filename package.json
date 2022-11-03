@@ -6,16 +6,16 @@
   "version": "1.0.0",
   "description": "Prima versione applicazione di comparazione immagini commissionata da Giuseppe Rosco",
   "main": "electron/main.js",
-  "home" : "./",
-  "build" : {
-    "productName" : "Image Comparator",
-    "appId" : "image-comparator-01",
-    "files" : [
+  "home": "./",
+  "build": {
+    "productName": "Image Comparator",
+    "appId": "image-comparator-01",
+    "files": [
       "node_modules/**/*",
       "./**"
     ],
-    "win" : {
-      "target" : [
+    "win": {
+      "target": [
         "nsis"
       ]
     },
