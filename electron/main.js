@@ -10,7 +10,7 @@ const {
 let state = {
   current_index: 0,
   parallel_current_index: 0,
-  parallelFlag: false,
+  doubleFlag: false,
 };
 let mainWindow;
 let parallel_current_index;
@@ -21,6 +21,8 @@ const createWindow = () => {
     title: "Images Comparator",
     width: 1300,
     height: 1000,
+    minHeight : 850, 
+    minWidth : 850,
     webPreferences: {
       // nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
@@ -29,7 +31,12 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadURL(`file://${path.join(__dirname, "../src/index.html")}`);
+  mainWindow.webContents.on('did-finish-load',() => {
+    mainWindow.setTitle('Parallel Mode')
+    // mainWindow.setMenu(null)
+  })
+
+  mainWindow.loadURL(`file://${path.join(__dirname, "../src/parallel.html")}`);
 };
 
 app.whenReady().then(() => {
@@ -40,7 +47,7 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-//* listener per i path dal frontend
+//************* DOUBLE MODE ************************
 ipcMain.handle("display_first_images", async (event, args) => {
   const { path1, path2, index } = args;
 
@@ -112,14 +119,12 @@ ipcMain.handle("previous_images", async (event, args) => {
   return { status: "ok", image1, image2 };
 });
 
-//************* PARALLEL MODE ************************
-
-ipcMain.handle("start_parallel_mode", (event, args) => {
-  parallelWindow = new BrowserWindow({
+ipcMain.handle("start_double_mode", (event, args) => {
+  doubleWindow = new BrowserWindow({
     width: 1200,
     height: 1000,
-    minWidth: 600,
-    minHeight: 600,
+    minWidth: 800,
+    minHeight: 800,
     show: false,
     title : 'Parallel Mode',
     webPreferences: {
@@ -130,15 +135,18 @@ ipcMain.handle("start_parallel_mode", (event, args) => {
     },
   });
 
-  parallelWindow.loadURL(`file://${path.join(__dirname, "../src/parallel.html")}`);
+  doubleWindow.loadURL(`file://${path.join(__dirname, "../src/double.html")}`);
 
-  parallelWindow.webContents.on('did-finish-load',() => {
-    parallelWindow.setTitle('Parallel Mode')
+  doubleWindow.webContents.on('did-finish-load',() => {
+    doubleWindow.setTitle('Double Mode')
+    doubleWindow.setMenu(null)
   })
-  parallelWindow.show();
-  state.parallelFlag = true;
+  doubleWindow.show();
+  state.doubleFlag = true;
   return true;
 });
+
+//************* PARALLEL MODE ************************
 
 ipcMain.handle("parallel_display_first_image", async (event, args) => {
   const { path, index } = args;

@@ -28,8 +28,8 @@
     "extends": null
   },
   "scripts": {
-    "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
-    "build": "tailwindcss -i ./input.css -o ./css/style.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css",
     "start-electron": "electron .",
     "electron-only-build": "yarn electron-builder build --publish never"
   },

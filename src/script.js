@@ -5,7 +5,7 @@ const input_index = document.getElementById("input-index");
 const input_offset = document.getElementById("input-offset");
 const start_button = document.getElementById("start-button");
 const clear_button = document.getElementById("clear-button");
-const parallel_button = document.getElementById("parallel-button");
+// const parallel_button = document.getElementById("parallel-button");
 const left_arrow = document.getElementById("left-arrow");
 const right_arrow = document.getElementById("right-arrow");
 const img_1 = document.getElementById("img-1");
@@ -20,9 +20,11 @@ start_button.addEventListener("click", startButtonHandler);
 clear_button.addEventListener("click", clearButtonHandler);
 right_arrow.addEventListener("click", rightArrowHandler);
 left_arrow.addEventListener("click", leftArrowHandler);
-parallel_button.addEventListener('click', () => {
-  window.ipc_renderer.invoke('start_parallel_mode')
-})
+
+
+// parallel_button.addEventListener('click', () => {
+//   window.ipc_renderer.invoke('start_double_mode')
+// })
 
 
 async function leftArrowHandler() {
@@ -94,7 +96,6 @@ async function startButtonHandler() {
 }
 
 
-
 function clearButtonHandler() {
 
   input_index.value = "";
@@ -104,6 +105,22 @@ function clearButtonHandler() {
 
   img_1.src = "";
   img_2.src = "";
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+  e = e || window.event;
+
+  if (e.keyCode == "38") {
+    // up arrow
+  } else if (e.keyCode == "40") {
+    // down arrow
+  } else if (e.keyCode == "37") {
+    leftArrowHandler();
+  } else if (e.keyCode == "39") {
+    rightArrowHandler();
+  }
 }
 
 // data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4

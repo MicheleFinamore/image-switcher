@@ -21,7 +21,7 @@
   <div class="max-w-7xl mx-auto">
     <!-- commands -->
     <div class=" bg-slate-400 w-full p-6 mx-auto mt-8 grid grid-cols-2 gap-8 rounded-sm">
-      
+
       <!-- Path1 -->
       <div class=" flex items-center gap-4">
         <p class=" text-sm text-red font-bold text-black">Path 1</p>
@@ -38,11 +38,13 @@
       <div class="flex items-center gap-14">
         <div class="flex items-center gap-4">
           <p class=" text-sm text-red font-bold text-black">Indice di partenza</p>
-          <input id="input-index" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
+          <input id="input-index" type="text"
+            class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
         </div>
         <div class="flex items-center gap-4">
           <p class=" text-sm text-red font-bold text-black">Offset</p>
-          <input id="input-offset" type="text" class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
+          <input id="input-offset" type="text"
+            class="text-black border-0 rounded-md p-2 focus:outline-none w-[100px] text-sm">
         </div>
 
 
@@ -50,41 +52,45 @@
 
       <!-- Container start clear -->
       <div class="flex items-center gap-14">
-        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="start-button">Start</button>
-        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100" id="clear-button">Clear</button>
-        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100" id="parallel-button">Parallel</button>
+        <button
+          class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100"
+          id="start-button">Start</button>
+        <button
+          class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100"
+          id="clear-button">Clear</button>
       </div>
+
+
     </div>
-
-    <!-- Images container -->
-    <div class=" bg-slate-400 w-full h-[80vh] p-6 mx-auto mt-10 rounded-sm">
-      <!-- left col -->
-      <div class="grid grid-cols-[80px_1fr_80px] h-full">
-        <div class="flex flex-col justify-center">
-          <button
-            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
-            id="left-arrow">
-            <img src="../images/left-arrow-clean.svg" alt="left arrow" class="text-black w-20">
-          </button>
-        </div>
-
-        <div class="p-2 flex justify-around items-center" id="images-container">
-          <img  class="w-[48%] " alt="" id="img-1">
-          <img  class="w-[48%]" alt="" id="img-2">
-        </div>
-
-        <div class="flex flex-col justify-center ">
-          <button
-            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
-            id="right-arrow">
-            <img src="../images/right-arrow-clean.svg" alt="left arrow" class="text-black w-20">
-          </button>
-
-        </div>
-
-      </div>
+          <!-- Images container -->
+          <div class=" bg-slate-400 w-full h-[80vh] p-6 mx-auto mt-10 rounded-sm">
+            <!-- left col -->
+            <div class="grid grid-cols-[80px_1fr_80px] h-full">
+              <div class="flex flex-col justify-center">
+                <button
+                  class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+                  id="left-arrow">
+                  <img src="../images/left-arrow-clean.svg" alt="left arrow" class="text-black w-20">
+                </button>
+              </div>
+    
+              <div class="p-2 flex justify-around items-center" id="images-container">
+                <img class="w-[48%] " alt="" id="img-1">
+                <img class="w-[48%]" alt="" id="img-2">
+              </div>
+    
+              <div class="flex flex-col justify-center ">
+                <button
+                  class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+                  id="right-arrow">
+                  <img src="../images/right-arrow-clean.svg" alt="left arrow" class="text-black w-20">
+                </button>
+    
+              </div>
+    
+            </div>
+          </div>
     </div>
-  </div>
 </body>
 <script src="./script.js"></script>
 

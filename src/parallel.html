@@ -53,37 +53,45 @@
       <div class="flex items-center gap-14">
         <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="parallel-start-button">Start</button>
         <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100" id="parallel-clear-button">Clear</button>
-
-        <div class=" flex items-center justify-center gap-2">
+        <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-6 py-2 hover:opacity-80 active:translate-y-0.5 transition-all duration-100" id="parallel-double-button">Double mode</button>
+        <!-- <div class=" flex items-center justify-center gap-2">
           <p class="text-black font-semibold">Folder corrente:</p>
           <p class="text-black font-medium" id="current_folder"></p>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!-- Images container -->
     <div class=" bg-slate-400 w-full p-6 mx-auto mt-10 rounded-sm">
-      <!-- left col -->
-      <div class="grid grid-cols-[95px_1fr_95px] min-h-[500px]">
+      
+      <div class="grid grid-cols-[95px_1fr_95px] min-h-[500px] ">
+
+        <!-- left col -->
         <div class="flex flex-col justify-center">
           <button
-            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105 focus:outline-none active:outline-none"
             id="parallel-left-arrow">
             <img src="../images/left-arrow-clean.svg" alt="left arrow" class="text-black w-20">
           </button>
         </div>
 
-        <div class="p-2 flex justify-around items-center" id="parallel-images-container">
-          <img class="w-full h-full" alt="" id="parallel-img-1">
+        <!-- Container immagine -->
+        <div class="p-2 flex flex-col justify-center items-start gap-2" id="parallel-images-container">
+          <div class=" flex items-center justify-start gap-2">
+            <p class="text-black font-semibold">Folder corrente:</p>
+            <p class="text-black font-medium" id="current_folder"></p>
+          </div>
+          <img class=" w-11/12 h-11/12 mx-auto" src="../images/317fa_099r27s01_a01_t01_f01_it1500_fv16_dcptc-vs110f-xp02340.png" alt="" id="parallel-img-1">
         </div>
 
+        <!-- Freccia destra e confronta -->
         <div class="flex flex-col justify-center gap-4 ">
           <button
-            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105"
+            class=" bg-lightRed border-0 rounded-md px-4 flex items-center justify-center hover:cursor-pointer active:scale-105 focus:outline-none active:outline-none"
             id="parallel-right-arrow">
             <img src="../images/right-arrow-clean.svg" alt="left arrow" class="text-black w-20">
           </button>
-          <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-4 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100" id="compare-button">Confronta</button>
+          <button class=" border-0 rounded-lg shadow-sm bg-darkBlue2 text-white text-sm font-semibold px-4 py-2 hover:opacity-80 active:-translate-y-1 transition-all duration-100 focus:outline-none active:outline-none" id="compare-button">Confronta</button>
         </div>
 
       </div>
