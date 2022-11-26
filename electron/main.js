@@ -73,11 +73,11 @@ ipcMain.handle("display_first_images", async (event, args) => {
 });
 
 ipcMain.handle("next_images", async (event, args) => {
-  const { offset, path1, path2 } = args;
+  const { effectiveOffset, path1, path2 } = args;
   let image1;
   let image2;
 
-  const current_image = state.current_index + offset;
+  const current_image = state.current_index + effectiveOffset;
   state.current_index = current_image;
 
   const folder1_files = await readDirectoryAsync(path1);
@@ -104,10 +104,10 @@ ipcMain.handle("next_images", async (event, args) => {
 });
 
 ipcMain.handle("previous_images", async (event, args) => {
-  const { offset, path1, path2 } = args;
+  const { effectiveOffset, path1, path2 } = args;
   let image1, image2;
 
-  const current_image = state.current_index - offset;
+  const current_image = state.current_index - effectiveOffset;
   state.current_index = current_image;
 
   const folder1_files = await readDirectoryAsync(path1);
@@ -139,7 +139,7 @@ ipcMain.handle("start_double_mode", (event, args) => {
 
   doubleWindow.webContents.on('did-finish-load',() => {
     doubleWindow.setTitle('Double Mode')
-    doubleWindow.setMenu(null)
+    // doubleWindow.setMenu(null)
   })
   doubleWindow.show();
   state.doubleFlag = true;
@@ -160,18 +160,19 @@ ipcMain.handle("parallel_display_first_image", async (event, args) => {
 });
 
 ipcMain.handle("parallel_next_images", async (event, args) => {
-  const { path, offset } = args;
+  const { path, effectiveOffset } = args;
+  console.log('offset', effectiveOffset);
 
   let image1;
 
-  const current_image = state.parallel_current_index + offset;
+  const current_image = state.parallel_current_index + effectiveOffset;
   state.parallel_current_index = current_image;
 
   const folder_files = await readDirectoryAsync(path);
-  console.log(
-    "parallel_mode_files",
-    folder_files[state.parallel_current_index]
-  );
+  // console.log(
+  //   "parallel_mode_files",
+  //   folder_files[state.parallel_current_index]
+  // );
 
   if (current_image > folder_files.length) {
     dialog.showMessageBox(parallelWindow, {
@@ -189,9 +190,9 @@ ipcMain.handle("parallel_next_images", async (event, args) => {
 });
 
 ipcMain.handle("parallel_previous_images", async (event, args) => {
-  const { offset, path } = args;
+  const { effectiveOffset, path } = args;
   let image;
-  const current_parallel_image = state.parallel_current_index - offset;
+  const current_parallel_image = state.parallel_current_index - effectiveOffset;
   state.parallel_current_index = current_parallel_image;
 
   const folder_files = await readDirectoryAsync(path);
@@ -216,3 +217,23 @@ ipcMain.handle("parallel_compare", async (event, args) => {
   // leggo immagine
   // torno ok e immagine
 });
+
+
+//************* COMMON HANDLERS ************************
+
+ipcMain.handle("showMessageBox", (event,args) => {
+
+  if(args.window === 'parallel'){
+    wind = mainWindow
+  } else if(args.window === 'double'){
+    wind = doubleWindow
+  }
+
+
+  dialog.showMessageBox(wind, {
+    title: "Attenzione!",
+    message: args.msg,
+    type: args.type,
+  });
+  return;
+})

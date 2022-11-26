@@ -4,9 +4,9 @@ const { ipcRenderer, contextBridge } = require("electron");
 
 const WINDOW_API = {
   invoke: (channel, data) => {
-    return ipcRenderer.invoke(channel, data)
+    return ipcRenderer.invoke(channel, data);
   },
-//   perform_action: (payload) => ipcRenderer.send(PERFORM_ACTION, payload),
+  //   perform_action: (payload) => ipcRenderer.send(PERFORM_ACTION, payload),
   receive: (channel, func) => {
     // Deliberately strip event as it includes `sender`
     const subscription = (event, ...args) => func(...args);
@@ -24,4 +24,4 @@ const WINDOW_API = {
   },
 };
 
-contextBridge.exposeInMainWorld('ipc_renderer', WINDOW_API);
+contextBridge.exposeInMainWorld("ipc_renderer", WINDOW_API);
