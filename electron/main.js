@@ -2,6 +2,7 @@ const { app, BrowserWindow, dialog } = require("electron");
 const path = require("path");
 const { ipcMain } = require("electron/main");
 const fs = require("fs").promises;
+import { autoUpdater } from "electron-updater";
 const {
   readDirectoryAsync,
   readFileAsync,
@@ -41,11 +42,31 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
   createWindow();
+
+  autoUpdater.checkForUpdates();
+
 });
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
+
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+})
+
+autoUpdater.on('update-downloaded', (info) => {
+  autoUpdater.quitAndInstall();
+})
+
+function sendStatusToWindow(text) {
+  log.info(text);
+  win.webContents.send('message', text);
+}
 
 //************* DOUBLE MODE ************************
 ipcMain.handle("display_first_images", async (event, args) => {

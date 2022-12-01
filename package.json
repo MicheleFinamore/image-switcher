@@ -17,6 +17,9 @@
     "win": {
       "target": [
         "nsis"
+      ],
+      "publish": [
+        "github"
       ]
     },
     "nsis": {
@@ -26,6 +29,10 @@
       "license": "readme.md"
     },
     "extends": null
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MicheleFinamore/image-switcher"
   },
   "scripts": {
     "watch": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
@@ -40,6 +47,7 @@
     "tailwindcss": "^3.0.24"
   },
   "dependencies": {
+    "electron-updater": "^5.3.0",
     "tailwindcss-children": "^2.1.0"
   }
 }

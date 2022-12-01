@@ -11,6 +11,10 @@ const parallel_compare_button = document.getElementById("compare-button"); // co
 const current_folder_p = document.getElementById("current_folder"); // p tag per il folder corrente
 const double_button = document.getElementById("parallel-double-button"); // button per double mode
 const jump_button = document.getElementById("jump-button"); // button per usare l'offset e saltare
+const {ipcRenderer} = window.require('electron')
+ipcRenderer.on('message', function(event, text) {
+console.log('messages from main', text);
+})
 
 let mainPath = 1;
 parallel_input_index.value = "0";
